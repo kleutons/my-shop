@@ -2,3 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+.container{
+    max-width: 1200px;
+    padding: 0 10px;
+}
+*::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #d4d4d4;
+    border-radius: 5px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: #949494;
+    border-radius: 14px;
+}
+
+@layer base{
+    .subline{
+        position: relative;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .subline:before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -1px;
+        left: 0;
+        background-color: #000;
+        visibility: hidden;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+    }
+
+    .subline:hover:before {
+        visibility: visible;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+}
