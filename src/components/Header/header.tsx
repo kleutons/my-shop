@@ -10,7 +10,6 @@ import { BtnMenuMobile } from '../Buttons/btnMenuMobile';
 import { BtnSearchMobile } from '../Buttons/btnSearchMobile';
 
 
-
 export function Header(){
 
     return(
