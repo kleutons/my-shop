@@ -33,7 +33,7 @@
         height: 2px;
         bottom: -1px;
         left: 0;
-        background-color: #000;
+        background-color: currentColor;
         visibility: hidden;
         -webkit-transform: scaleX(0);
         transform: scaleX(0);

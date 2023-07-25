@@ -68,7 +68,7 @@ export function Footer(){
                             <ul className="flex flex-wrap gap-6 pt-8 sm:pt-0 items-center justify-center">
                                 {menuFooter.map(menu => {
                                     return(
-                                        <li className="text-md whitespace-nowrap" key={menu.name}>
+                                        <li className="text-md whitespace-nowrap subline" key={menu.name}>
                                             <Link href={menu.link}>
                                                 {menu.name}
                                             </Link>
