@@ -6,6 +6,10 @@
     max-width: 1200px;
     padding: 0 10px;
 }
+
+.scroll-none::-webkit-scrollbar{
+    display: none;
+}
 *::-webkit-scrollbar {
     width: 8px;
   }
