@@ -31,7 +31,7 @@ const menuFooter = [
 
 export function Footer(){
     return(
-        <footer className="w-full mt-8  ">
+        <footer className="w-full mt-24">
             <div className="bg-[#191919] min-h-[260px] py-12 sm:py-0 text-white flex items-center">
                 <div className="mx-auto container flex flex-col sm:flex-row justify-around gap-6">
                     <div className="flex flex-col text-center justify-center gap-6">
