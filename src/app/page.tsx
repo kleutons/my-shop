@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="flex flex-col gap-24">
       <FeaturedHome />
-      <ListProducts />
+      <ListProducts title="Produtos em Destaque" />
       <BannerHome src={Banner01} title="Vida Harmoniosa e Criativa" contentText="Os produtos MyShop são todos feitos em tamanhos padrão para que você possa misturá-los e combiná-los livremente." url="#" />
 
       <TrendingNow />
