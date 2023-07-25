@@ -3,12 +3,14 @@ import ProductImg from '@/assets/img/product.jpg'
 import { OneProduct } from "./oneProduct";
 
 interface ListProducts {
-
+    title?: string;
 }
-export function ListProducts(props : ListProducts){
+export function ListProducts({title} : ListProducts){
     return(
         <div>
-            <TitleHome title='Produtos em Destaque' />
+            {title && 
+                <TitleHome title={title} />
+            }
 
             <div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-3 sm:gap-4">
 
