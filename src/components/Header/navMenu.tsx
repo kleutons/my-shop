@@ -11,7 +11,7 @@ const MENU = [
     },
     {
         title: 'Promo',
-        url:  ''
+        url:  '/product/a'
     }
 ];
 

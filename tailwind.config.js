@@ -9,6 +9,11 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         '4cl': 'repeat(auto-fit, minmax(250px, 1fr))',
+      },
+      colors:{
+        'cl-primary' : '#fa3e17',
+        'cl-primaryDark' : '#d2391a',
+        'cl-primaryLigth' : '#ffeee8',
       }
     },
   },
