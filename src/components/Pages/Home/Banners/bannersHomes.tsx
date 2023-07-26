@@ -1,3 +1,4 @@
+import { Btn } from "@/components/Buttons/btn";
 import { BtnPrimary } from "@/components/Buttons/btnPrimary";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
@@ -20,7 +21,7 @@ export function BannerHome({reverse = false, src, title, contentText, url} : Ban
                     <h3 className="text-3xl font-bold">{title}</h3>
                     <p className=" text-lg">{contentText}</p>
                     <Link href={url}> 
-                        <BtnPrimary text="Compre Agora" />
+                        <Btn>COMPRE AGORA</Btn>
                     </Link> 
                 </div>
             </div>
