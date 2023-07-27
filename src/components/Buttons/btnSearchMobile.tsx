@@ -9,7 +9,7 @@ export function BtnSearchMobile(){
 
     return(
         <>
-            <button className='w-5 h-5 sm:hidden' onClick={() => setIsOpen(true)}>
+            <button className='w-6 h-6 sm:hidden' onClick={() => setIsOpen(true)}>
                 <SvgSearch />
             </button>
             {isOpen && 

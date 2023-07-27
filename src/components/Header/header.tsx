@@ -22,13 +22,13 @@ export function Header(){
                 <div className='hidden sm:block w-[40%]'>
                     <InputSearch />
                 </div>
-                <div className="flex gap-3 sm:gap-4 items-center">
+                <div className="flex gap-4 items-center">
                     <ul className="hidden sm:flex gap-3 items-center text-xl">
                        <NavMenu />
                     </ul>
 
                     <BtnSearchMobile />
-                    <button className='w-6 h-4 sm:w-8 sm:h-6'>
+                    <button className='w-7 h-5 sm:w-8 sm:h-6'>
                         <SvgCard />
                     </button>
                     <BtnMenuMobile />
