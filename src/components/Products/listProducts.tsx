@@ -12,7 +12,7 @@ export function ListProducts({title} : ListProducts){
                 <TitleHome title={title} />
             }
 
-            <div className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-3 sm:gap-4">
+            <div className="grid grid-cols-[repeat(auto-fit,_minmax(170px,_1fr))] md:grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-3 sm:gap-4">
 
                 {Array.from({length: 8}, (_,index) =>(
                     <OneProduct key={index} src={ProductImg} name="Poltrona de pele de carneiro" price="20,00" />

@@ -1,5 +1,4 @@
 import { Btn } from "@/components/Buttons/btn";
-import { BtnPrimary } from "@/components/Buttons/btnPrimary";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
@@ -21,7 +20,7 @@ export function BannerHome({reverse = false, src, title, contentText, url} : Ban
                     <h3 className="text-3xl font-bold text-gray-800">{title}</h3>
                     <p className="text-lg text-gray-500">{contentText}</p>
                     <Link href={url}> 
-                        <Btn className="bg-black text-white hover:bg-cl-primary">Saiba Mais</Btn>
+                        <Btn className="bg-cl-btn-black text-white hover:bg-cl-primary">Saiba Mais</Btn>
                     </Link> 
                 </div>
             </div>

@@ -1,6 +1,5 @@
 import { SvgFace } from "@/assets/icons/face";
 import { SvgGithub } from "@/assets/icons/github";
-import { SvgHeard } from "@/assets/icons/heart";
 import { SvgLink } from "@/assets/icons/link";
 import { SvgLinkedin } from "@/assets/icons/linkedin";
 import Link from "next/link";
@@ -38,13 +37,13 @@ export function Footer(){
                         <h2 className="text-3xl font-bold">Receba Novidades</h2>
                         <div className="flex text-center justify-center gap-3">
                             <input className="p-2 text-black " type="text" placeholder="seu@email.com" />
-                            <button className="bg-white/30 text-white hover:bg-white/50 p-2 transition-colors duration-500">Se Inscreva</button>
+                            <button className="bg-white/30 text-white hover:bg-cl-0 p-2 transition-colors duration-500">Se Inscreva</button>
                         </div>
                     </div>
                     <div className="flex flex-col gap-4 text-center">
                         <h2 className="text-3xl font-bold">Siga-nos!</h2>
                         <div className="flex gap-3 justify-center">
-                            <button className="text-white/70 hover:text-white">
+                            <button className="text-white/70 hover:text-clprimary">
                                 <SvgFace size={40} />
                             </button>
                             <button className="text-white/70 hover:text-white">
