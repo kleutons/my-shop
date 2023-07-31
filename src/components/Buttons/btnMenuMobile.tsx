@@ -10,7 +10,7 @@ export function BtnMenuMobile(){
     
     return(
         <>
-            <button  onClick={() => setIsOpen(true) } className='w-8 h-8 block sm:hidden'>
+            <button  onClick={() => setIsOpen(true) } className='w-8 h-8 block md:hidden'>
                 <SvgMenu />
             </button>
 

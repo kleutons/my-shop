@@ -1,16 +1,16 @@
 'use client'
 import { OneProduct } from "./oneProduct";
-import ProductImg from '@/assets/img/product.jpg'
 import { TitleHome } from "../Titles/titleHome";
 import { useRef } from "react";
 import { SvgArrowLeft } from "@/assets/icons/arrowLeft";
 import { SvgArrowRight } from "@/assets/icons/arrowRight";
 import { Btn } from "../Buttons/btn";
+import { Product } from "@/types/prodruct";
 
 interface TrendingNowProps {
-
+    dataProducts: Product[];
 }
-export function TrendingNow(props : TrendingNowProps){
+export function TrendingNow({dataProducts} : TrendingNowProps){
     const contentDiv = useRef<HTMLDivElement>(null);
     const scrollStep = 235; // largura desvio apos click
 
@@ -39,9 +39,9 @@ export function TrendingNow(props : TrendingNowProps){
 
             <div ref={contentDiv} className="flex gap-2 pb-8 scroll-smooth overflow-y-hidden overflow-x-scroll scroll-none">
 
-            {Array.from({length: 8}, (_,index) =>(
+            {dataProducts.map((item,index) =>(
                 <div key={index} className="min-w-[228px]">
-                    <OneProduct key={index} src={ProductImg} name="Poltrona de pele de carneiro asdsadsadsadsa aadsadas " price="20,00" />
+                    <OneProduct key={`product-${index}`} src={item.mainImg} name={item.title} price={item.regularPrice} salePrice={item.salePrice} />
                 </div>
                 ))}
 

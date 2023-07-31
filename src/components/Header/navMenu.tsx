@@ -10,7 +10,7 @@ const MENU = [
         url:  '/categories'
     },
     {
-        title: 'Promo',
+        title: 'Página do Produto',
         url:  '/product/a'
     }
 ];
@@ -20,7 +20,7 @@ export function NavMenu(){
     return(
         <>
             {MENU.map(menu => (
-                <li key={`menu-${menu.title}`} className='subline'>
+                <li key={`menu-${menu.title}`} className='subline whitespace-nowrap'>
                     <Link href={menu.url}>
                             {menu.title}
                     </Link>
