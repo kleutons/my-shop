@@ -1,7 +1,7 @@
 
 export type ProductCategory = "chair" | "kitchen" | "lamp" | "furniture" | "cosmetic" | "electronic";
 
-export type OuterImg = string;
+export type OtherImgs = string;
 
 export type DetailsProduct = {
     texture: string;
@@ -16,7 +16,7 @@ export type Product = {
     regularPrice: number;
     salePrice: number;
     mainImg: string;
-    outerImgs: OuterImg[];
+    otherImgs: OtherImgs[];
     specs:  string;
     details: DetailsProduct;
 }

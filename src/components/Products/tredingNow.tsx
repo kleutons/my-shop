@@ -41,7 +41,7 @@ export function TrendingNow({dataProducts} : TrendingNowProps){
 
             {dataProducts.map((item,index) =>(
                 <div key={index} className="min-w-[228px]">
-                    <OneProduct key={`product-${index}`} src={item.mainImg} name={item.title} price={item.regularPrice} salePrice={item.salePrice} />
+                    <OneProduct key={`product-${index}`} dataItem={item} />
                 </div>
                 ))}
 

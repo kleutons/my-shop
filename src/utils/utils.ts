@@ -15,3 +15,12 @@ export function percentValue({price, priceSale} : percentValueProps){
     const percent = Math.round(((price - priceSale) / price) * 100);
     return percent;
 }
+
+export function ShuffleArray<T>(array:T[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  
+    return array;
+  }
