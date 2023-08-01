@@ -2,6 +2,7 @@ import { Btn } from "@/components/Buttons/btn";
 import { Product } from "@/types/prodruct";
 import { percentValue } from "@/utils/utils";
 import { ProductsImgs } from "./productImgs";
+import { ActionProduct } from "@/components/Products/actionProduct";
 
 
 interface PageProductProps {
@@ -30,32 +31,7 @@ export function PageProduct({dataProduct} : PageProductProps){
                         <p className=" text-2xl">
                             {dataProduct.specs}
                         </p>
-                        <div>
-
-                            <div className="flex justify-between items-center mb-6">
-                                <div className="flex items-center gap-2">
-                                    <p className="text-lg md:text-xl font-bold">Quantidade</p>
-                                    <div className="flex items-center">
-                                        <Btn className="bg-white border border-black px-3 py-1 text-xl md:text-3xl"> - </Btn>
-                                        <p className="bg-transparent w-8 md:w-12 text-center text-xl py-1 md:py-2 border-y border-black"> 1 </p>
-                                        <Btn className="bg-white border border-black px-3 py-1 text-xl md:text-3xl font-normal"> + </Btn>
-                                    </div>
-                                </div>
-                                {discont ? (
-                                    <>
-                                   <p className="text-lg text-gray-600 line-through">R$ {dataProduct.regularPrice},00</p>
-                                   <p className="text-black text-3xl font-bold">R$ {dataProduct.salePrice}<span className=" text-lg">,00</span></p> 
-                                    </>
-                                ):(
-                                    <p className="text-black text-3xl font-bold">R$ {dataProduct.regularPrice}<span className=" text-lg">,00</span></p>
-                                )}
-
-                            </div>
-                            <div className="flex flex-col sm:flex-row justify-between w-full gap-3">
-                                <Btn className="w-full sm:w-1/2 py-3 bg-cl-primaryLigth border-cl-primaryDark text-cl-primary hover:bg-[#fffbf9] border"> Adicione ao Carrinho </Btn>
-                                <Btn className="w-full sm:w-1/2 py-3 bg-cl-primaryDark  text-white hover:bg-cl-primary"> COMPRAR </Btn>
-                            </div>
-                        </div>
+                       <ActionProduct id={dataProduct.id} price={dataProduct.regularPrice} salePrice={dataProduct.salePrice} />
                     </div>
                 </div>
 
