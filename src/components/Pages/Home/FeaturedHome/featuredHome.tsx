@@ -12,16 +12,16 @@ export function FeaturedHome(props : FeaturedHomeProps){
         <>
         <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-2 h-[500px] gap-4 mt-6">
             <div className="relative bg-gray-200 md:row-span-2 md:col-span-2">
-                <FeaturedImg name='Casa' src={HomeImg} />
+                <FeaturedImg linkUrl='/categories/' name='Casa' src={HomeImg} />
             </div>
             <div className="relative md:row-span-2">
-                <FeaturedImg name='Beleza' src={Skincare} />
+                <FeaturedImg linkUrl='/categories/cosmetic' name='Beleza' src={Skincare} />
             </div>
             <div className="relative">
-                <FeaturedImg name='Cozinha' src={Kitchen} />
+                <FeaturedImg linkUrl='/categories/kitchen' name='Cozinha' src={Kitchen} />
             </div>
             <div className="relative">
-                <FeaturedImg name='Eletrônicos' src={Electronics} />
+                <FeaturedImg linkUrl='/categories/electronic' name='Eletrônicos' src={Electronics} />
             </div>
         </div>
         </>
