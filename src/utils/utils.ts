@@ -23,4 +23,34 @@ export function ShuffleArray<T>(array:T[]) {
     }
   
     return array;
-  }
+}
+
+export const nameCategory = [
+    {
+        0: 'Categorias',
+    },
+    {
+        'furniture': 'Móveis'
+    },
+    {
+        'electronic': 'Eletrônicos'
+    },
+    {
+        'lamp': 'Lâmpadas'
+    },
+    {
+        'kitchen':'Cozinha'
+    },
+    {
+        'chair': 'Cadeiras'
+    },
+    {
+        'cosmetic': 'Cosméticos'
+    }
+    
+]
+
+export function getCategoryName(slug?:string | number){
+    const categoryObject = nameCategory.find((item) => item.hasOwnProperty(slug!));
+    return categoryObject ? Object.values(categoryObject)[0] : 'Categorias';
+}

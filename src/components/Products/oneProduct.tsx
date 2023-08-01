@@ -13,7 +13,7 @@ export function OneProduct({ dataItem } : OneProductListProps){
 
     return(
         <Link href={`/product/${dataItem.id}`}>
-            <div className=" p-3 border-2 bg-white border-gray-200 hover:border-cl-primary hover:shadow-xl hover:shadow-cl-primary/10 transition-colors duration-300 relative ">
+            <div className=" p-3 border-2 bg-white border-gray-200 hover:border-cl-primary hover:shadow-xl hover:shadow-cl-primary/10 transition-colors duration-300 relative max-w-[290px] ">
                 { discont &&
                     <div className="absolute top-0 left-0 px-2 text-sm bg-cl-primary text-white">{discont}% OFF</div> 
                 }

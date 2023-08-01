@@ -3,7 +3,7 @@ import { PageProduct } from "@/components/Pages/Protuct/product";
 import { TrendingNow } from "@/components/Products/tredingNow";
 import { Product } from "@/types/prodruct";
 import { fetchApi } from "@/utils/fetchApi";
-import { ShuffleArray } from "@/utils/utils";
+import { ShuffleArray, nameCategory } from "@/utils/utils";
 
 const getProductsData = async  (): Promise<Product[]> => {
     return fetchApi(
@@ -21,9 +21,23 @@ export default async function Product({ params: { id } }:IProps){
     const filteredProduct = productsData.find(x => x.id === parmId);
     const filteredTrend = ShuffleArray(productsData).slice(8, 20);
 
+
+
     return(
         <>
-        <Breadcrumbs />
+        {filteredProduct && 
+        
+          <Breadcrumbs items={
+            [
+              {
+                name: nameCategory(filteredProduct.category),
+                url: `/categories/${filteredProduct.category}`
+              },
+              {
+                name: filteredProduct.title
+              },
+            ]} />
+        }
         <PageProduct dataProduct={filteredProduct} />
         <TrendingNow dataProducts={filteredTrend} />
         </>
