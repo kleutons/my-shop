@@ -1,10 +1,7 @@
-import Image from "next/image";
-import imgPt01 from '@/assets/img/imgPt01.jpg'
-import imgPt02 from '@/assets/img/imgPt02.webp'
-import imgPt03 from '@/assets/img/imgPt03.webp'
 import { Btn } from "@/components/Buttons/btn";
 import { Product } from "@/types/prodruct";
 import { percentValue } from "@/utils/utils";
+import { ProductsImgs } from "./productImgs";
 
 
 interface PageProductProps {
@@ -13,6 +10,7 @@ interface PageProductProps {
 export function PageProduct({dataProduct} : PageProductProps){
 
     const discont = dataProduct ? percentValue({ price: dataProduct.regularPrice, priceSale: dataProduct.salePrice }) : null;
+
 
     return(
         <>  
@@ -24,17 +22,8 @@ export function PageProduct({dataProduct} : PageProductProps){
             <>
                 <div className="flex flex-col md:flex-row gap-4 sm:gap-2 w-full mb-20">
                     <h1 className="block md:hidden text-3xl font-bold text-center">{dataProduct.title}</h1>  
-                    <div className="w-ful md:w-1/2 h-auto mb-6 md:mb-0 md:h-[600px]">
-                        <div className="flex h-[70%] w-full justify-center">
-                            <Image src={dataProduct.mainImg} alt="img Product" height={450} width={450} className="h-full object-cover w-full md:w-[75%]" />
-                        </div>
-                        <div className="flex items-center gap-2 justify-center py-3 w-full">
-                            <Image src={dataProduct.mainImg} alt='imgPt02' height={120} width={120} className="cursor-pointer first-letter border hover:border-cl-primary hover:shadow-xl hover:shadow-cl-primary/10" />
-
-                            {dataProduct.otherImgs && dataProduct.otherImgs.map((imgUrl, index) => (
-                                <Image key={`outerImgs-${index}`} src={imgUrl} alt='imgPt02' height={120} width={120} className="cursor-pointer first-letter border hover:border-cl-primary hover:shadow-xl hover:shadow-cl-primary/10" />
-                            ))}
-                        </div>
+                    <div className="flex flex-col justify-end w-ful md:w-1/2 h-auto md:h-[600px]">
+                        <ProductsImgs mainImgUrl={dataProduct.mainImg} otherImgsUrl={dataProduct.otherImgs} />
                     </div>
                     <div className="w-ful md:w-1/2 flex flex-col justify-between gap-8  h-auto md:h-[600px] bg-[#eeeeee] px-6 md:px-4 lg:px-8 pt-6 pb-10"> 
                         <h1 className="hidden md:block text-3xl font-bold text-center">{dataProduct.title}</h1>  

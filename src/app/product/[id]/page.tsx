@@ -3,7 +3,7 @@ import { PageProduct } from "@/components/Pages/Protuct/product";
 import { TrendingNow } from "@/components/Products/tredingNow";
 import { Product } from "@/types/prodruct";
 import { fetchApi } from "@/utils/fetchApi";
-import { ShuffleArray, nameCategory } from "@/utils/utils";
+import { ShuffleArray, getCategoryName } from "@/utils/utils";
 
 const getProductsData = async  (): Promise<Product[]> => {
     return fetchApi(
@@ -30,7 +30,7 @@ export default async function Product({ params: { id } }:IProps){
           <Breadcrumbs items={
             [
               {
-                name: nameCategory(filteredProduct.category),
+                name: getCategoryName(filteredProduct.category),
                 url: `/categories/${filteredProduct.category}`
               },
               {
