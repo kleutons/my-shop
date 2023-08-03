@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { SvgArrowLeft } from "@/assets/icons/arrowLeft";
 import { SvgArrowRight } from "@/assets/icons/arrowRight";
 import { Btn } from "../Buttons/btn";
-import { Product } from "@/types/prodruct";
+import { Product } from "@/types/product";
 
 interface TrendingNowProps {
     dataProducts: Product[];

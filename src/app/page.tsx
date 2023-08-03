@@ -5,7 +5,7 @@ import { ListProducts } from "@/components/Products/listProducts";
 import Banner01 from '@/assets/img/banner01.jpg'
 import Banner02 from '@/assets/img/banner02.jpg'
 import { TrendingNow } from "@/components/Products/tredingNow";
-import { Product } from "@/types/prodruct";
+import { Product } from "@/types/product";
 import { fetchApi } from "@/utils/fetchApi";
 
 const getProductsData = async  (): Promise<Product[]> => {

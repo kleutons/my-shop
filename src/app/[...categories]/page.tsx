@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs/breadcrumbs";
 import { PageCategories } from "@/components/Pages/Categories/categories";
-import { Product } from "@/types/prodruct";
+import { Product } from "@/types/product";
 import { fetchApi } from "@/utils/fetchApi";
 import { getCategoryName } from "@/utils/utils";
 

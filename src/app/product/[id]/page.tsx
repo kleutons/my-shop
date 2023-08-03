@@ -1,7 +1,7 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs/breadcrumbs";
 import { PageProduct } from "@/components/Pages/Protuct/product";
 import { TrendingNow } from "@/components/Products/tredingNow";
-import { Product } from "@/types/prodruct";
+import { Product } from "@/types/product";
 import { fetchApi } from "@/utils/fetchApi";
 import { ShuffleArray, getCategoryName } from "@/utils/utils";
 

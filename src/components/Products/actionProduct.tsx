@@ -5,9 +5,9 @@ import { useState } from "react";
 interface ActionProductProps {
     id: number
     price: number;
-    salePrice: number ;
+    originalPrice: number ;
 }
-export function ActionProduct({ id, price, salePrice} : ActionProductProps){
+export function ActionProduct({ id, price, originalPrice} : ActionProductProps){
 
     const [quantity, setQuantity] = useState(1);
 
@@ -36,8 +36,8 @@ export function ActionProduct({ id, price, salePrice} : ActionProductProps){
                 </div>
                 
                 <div className="flex gap-2 justify-end">
-                    {salePrice !== 0 &&
-                        <p className="text-lg text-gray-600 line-through">R$ {salePrice},00</p>
+                    {originalPrice !== 0 &&
+                        <p className="text-lg text-gray-600 line-through">R$ {originalPrice},00</p>
                     }
                     <p className="text-black text-3xl font-bold">R$ {price}<span className=" text-lg">,00</span></p> 
                 </div>

@@ -1,6 +1,6 @@
 import { TitleHome } from "@/components/Titles/titleHome";
 import { OneProduct } from "./oneProduct";
-import { Product } from "@/types/prodruct";
+import { Product } from "@/types/product";
 
 
 interface ListProducts {

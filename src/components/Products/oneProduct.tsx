@@ -1,4 +1,4 @@
-import { Product } from "@/types/prodruct";
+import { Product } from "@/types/product";
 import { percentValue } from "@/utils/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +8,7 @@ interface OneProductListProps {
 }
 export function OneProduct({ dataItem } : OneProductListProps){
 
-    const discont = percentValue({ price: dataItem.regularPrice, priceSale: dataItem.salePrice });
+    const discont = percentValue({ price: dataItem.regularPrice, priceSale: dataItem.originalPrice });
     
 
     return(
@@ -26,7 +26,7 @@ export function OneProduct({ dataItem } : OneProductListProps){
                         { discont ? (
                             <>
                             <p className="text-lg text-gray-600 line-through">R$ {dataItem.regularPrice},00</p>
-                            <p className="text-2xl font-bold">R$ {dataItem.salePrice}<span className="text-sm">,00</span></p>
+                            <p className="text-2xl font-bold">R$ {dataItem.originalPrice}<span className="text-sm">,00</span></p>
                             </>
                         ):(
                             <p className="text-2xl font-bold">R$ {dataItem.regularPrice}<span className="text-sm">,00</span></p>

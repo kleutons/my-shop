@@ -1,5 +1,5 @@
-import { Btn } from "@/components/Buttons/btn";
-import { Product } from "@/types/prodruct";
+
+import { Product } from "@/types/product";
 import { percentValue } from "@/utils/utils";
 import { ProductsImgs } from "./productImgs";
 import { ActionProduct } from "@/components/Products/actionProduct";
@@ -10,7 +10,7 @@ interface PageProductProps {
 }
 export function PageProduct({dataProduct} : PageProductProps){
 
-    const discont = dataProduct ? percentValue({ price: dataProduct.regularPrice, priceSale: dataProduct.salePrice }) : null;
+    const discont = dataProduct ? percentValue({ price: dataProduct.regularPrice, priceSale: dataProduct.originalPrice }) : null;
 
 
     return(
@@ -31,7 +31,7 @@ export function PageProduct({dataProduct} : PageProductProps){
                         <p className=" text-2xl">
                             {dataProduct.specs}
                         </p>
-                       <ActionProduct id={dataProduct.id} price={dataProduct.regularPrice} salePrice={dataProduct.salePrice} />
+                       <ActionProduct id={dataProduct.id} price={dataProduct.regularPrice} originalPrice={dataProduct.originalPrice} />
                     </div>
                 </div>
 

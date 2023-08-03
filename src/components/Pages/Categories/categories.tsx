@@ -1,10 +1,10 @@
 import { ListProducts } from "@/components/Products/listProducts"
-import { Product } from "@/types/prodruct"
+import { Product } from "@/types/product"
 import { getCategoryName, nameCategory } from "@/utils/utils";
 import Link from "next/link"
 
 interface PageCategoriesProps {
-    slug?: string | undefined;
+    slug?: string;
     dataProducts: Product[];
 }
 
