@@ -1,4 +1,4 @@
-import { ModalProvider } from "@/context/modalContext"
+import { CartProvider } from "@/context/cartContext"
 import { ReactNode } from "react"
 
 type DefaultProviderProps ={
@@ -7,8 +7,8 @@ type DefaultProviderProps ={
 
 export function DefaultProvider({ children }: DefaultProviderProps){
     return(
-        <ModalProvider>
+        <CartProvider>
             { children }
-        </ModalProvider>
+        </CartProvider>
     )
 }
