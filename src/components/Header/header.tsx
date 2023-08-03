@@ -3,11 +3,11 @@
 import Image from 'next/image';
 import logo from '../../assets/img/logoWhite.png';
 import Link from 'next/link';
-import { SvgCard } from '@/assets/icons/card';
 import { NavMenu } from './navMenu';
 import { InputSearch } from './inputSearch';
-import { BtnMenuMobile } from '../Buttons/btnMenuMobile';
 import { BtnSearchMobile } from '../Buttons/btnSearchMobile';
+import { CartControl } from './cartControl';
+import { MenuMobile } from './menuMobile';
 
 
 export function Header(){
@@ -28,10 +28,8 @@ export function Header(){
                     </ul>
 
                     <BtnSearchMobile />
-                    <button className='w-7 h-5 md:w-8 sm:h-6'>
-                        <SvgCard />
-                    </button>
-                    <BtnMenuMobile />
+                    <CartControl />
+                    <MenuMobile />
                 </div>
             </nav>
         </header>

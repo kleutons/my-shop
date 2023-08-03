@@ -1,65 +1,76 @@
 
 'use client'
-import { ReactNode, Fragment, useState } from "react";
-import { Dialog, Transition } from '@headlessui/react'
-import { useModal } from "@/hooks/useModal";
+import { ComponentProps, ReactNode, useEffect, useState } from "react";
 import { SvgClose } from "@/assets/icons/close";
+import { tv } from 'tailwind-variants'
 
-interface ModalMenuProps {
-    children: ReactNode;
+const classVariable = tv({
+  base: 'fixed z-30 bg-white text-gray-700 text-lg pointer-events-none opacity-0 -right-full data-[show=true]:opacity-100 data-[show=true]:pointer-events-auto data-[show=true]:right-0 transition-all duration-300 delay-100',
+});
+
+
+type IProps = {
+  showModal: boolean;
+  setShowModal: (show:boolean) => void;
+  children: ReactNode;
 }
-export function ModalMenu({ children } : ModalMenuProps){ 
-  const { isOpen, setIsOpen } = useModal();
+
+type ModalProps = ComponentProps<'div'> & IProps;
+
+export function Modal({ showModal, setShowModal, className, children } : ModalProps){ 
+
+  const [cData, setCData] = useState(false);
+  const handleClose = () => {
+      setCData(false);
+      setTimeout(function() {
+          setShowModal(false)
+        }, 500);
+  };
+  const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+          handleClose();
+      }
+  };
+
+  useEffect(() => {
+
+    if (showModal) {
+    document.body.style.overflow = 'hidden';
+    document.addEventListener("keydown", handleKeyPress);
+    setTimeout(function() {
+        setCData(true)
+      }, 100);
+
+    } else {
+    document.body.style.overflow = 'unset';
+    document.removeEventListener("keydown", handleKeyPress);
+    }
+
+    // Limpa o efeito ao desmontar o componente
+    return () => {
+    document.body.style.overflow = 'unset';
+    document.removeEventListener("keydown", handleKeyPress);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showModal]);
 
 
-  function closeModal() {
-    setIsOpen(false)
-  }
-
-  function openModal() {
-    setIsOpen(true)
-  }
 
     return(
-      <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
-          <Transition.Child
-            as={Fragment}
-            enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
-          </Transition.Child>
-          <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all relative">
-                  
-                  <div>
-                    <button type="button" className="h-6 w-6 absolute top-3 right-3" onClick={closeModal}>
-                      <SvgClose />
-                    </button>
-                  </div>
-                  <div className="mt-2">
-                    {children}
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
+      <>
+       {showModal &&
+        <>
+          <div data-show={cData} className='fixed z-20 top-0 bottom-0 left-0 right-0 bg-black/30 pointer-events-none  opacity-0 data-[show=true]:opacity-100 data-[show=true]:pointer-events-auto transition-all duration-500' onClick={handleClose} />
+          
+          <div data-show={cData} className={classVariable({className})}>
+            <button type="button" className="h-8 w-8 absolute top-3 right-3 z-50" onClick={handleClose}>
+              <SvgClose />
+            </button>
+            {children}
           </div>
-        </Dialog>
-      </Transition>
+        </>
+       } 
+      
+      </>
     )
 }

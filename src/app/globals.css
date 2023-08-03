@@ -17,16 +17,19 @@ body > main {
 }
 *::-webkit-scrollbar {
     width: 8px;
-  }
-  
-  *::-webkit-scrollbar-track {
+}
+
+*::-webkit-scrollbar-track {
     background: #d4d4d4;
     border-radius: 5px;
-  }
+}
   
-  *::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background: #949494;
     border-radius: 14px;
+}
+button:focus-visible{
+    outline: none;
 }
 
 @layer base{
