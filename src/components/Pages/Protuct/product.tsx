@@ -10,7 +10,7 @@ interface PageProductProps {
 }
 export function PageProduct({dataProduct} : PageProductProps){
 
-    const discont = dataProduct ? percentValue({ price: dataProduct.regularPrice, priceSale: dataProduct.originalPrice }) : null;
+    const discont = dataProduct ? percentValue({ price: dataProduct.regularPrice, originalPrice: dataProduct.originalPrice }) : null;
 
 
     return(

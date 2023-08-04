@@ -8,7 +8,7 @@ interface OneProductListProps {
 }
 export function OneProduct({ dataItem } : OneProductListProps){
 
-    const discont = percentValue({ price: dataItem.regularPrice, priceSale: dataItem.originalPrice });
+    const discont = percentValue({ price: dataItem.regularPrice, originalPrice: dataItem.originalPrice });
     
 
     return(
@@ -25,8 +25,8 @@ export function OneProduct({ dataItem } : OneProductListProps){
                         
                         { discont ? (
                             <>
-                            <p className="text-lg text-gray-600 line-through">R$ {dataItem.regularPrice},00</p>
-                            <p className="text-2xl font-bold">R$ {dataItem.originalPrice}<span className="text-sm">,00</span></p>
+                            <p className="text-lg text-gray-600 line-through">R$ {dataItem.originalPrice},00</p>
+                            <p className="text-2xl font-bold">R$ {dataItem.regularPrice}<span className="text-sm">,00</span></p>
                             </>
                         ):(
                             <p className="text-2xl font-bold">R$ {dataItem.regularPrice}<span className="text-sm">,00</span></p>

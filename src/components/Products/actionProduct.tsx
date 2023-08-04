@@ -33,7 +33,14 @@ export function ActionProduct({ itemProduct } : ActionProductProps){
         }
     };
 
-    const AddCartItem = () => {
+    const handleOpenCart = () => {
+        setShowModal(false);
+        setTimeout( () => {
+            setIsOpen(true);
+        },300)
+    }
+
+    function AddCartItem(byNow?:boolean){
         const item = {
             id: itemProduct.id,
             title: itemProduct.title,
@@ -42,15 +49,13 @@ export function ActionProduct({ itemProduct } : ActionProductProps){
             quantity: itemQuantity
         }
         addToCart(item);
-        setShowModal(!showModal);
+        if(byNow){
+            handleOpenCart();
+        }else{
+            setShowModal(true);
+        }
     }
 
-    const handleOpenCart = () => {
-        setShowModal(false);
-        setTimeout( () => {
-            setIsOpen(true);
-        },300)
-    }
 
     return(
         <div>
@@ -73,8 +78,8 @@ export function ActionProduct({ itemProduct } : ActionProductProps){
                 
             </div>
             <div className="flex flex-col sm:flex-row justify-between w-full gap-3">
-                <Btn onClick={AddCartItem} className="w-full sm:w-1/2 py-3 bg-cl-primaryLigth border-cl-primaryDark text-cl-primary hover:bg-[#fffbf9] border"> Adicione ao Carrinho </Btn>
-                <Btn className="w-full sm:w-1/2 py-3 bg-cl-primary text-white hover:bg-cl-primaryDark"> COMPRAR </Btn>
+                <Btn onClick={() => AddCartItem()} className="w-full sm:w-1/2 py-3 bg-cl-primaryLigth border-cl-primaryDark text-cl-primary hover:bg-[#fffbf9] border"> Adicione ao Carrinho </Btn>
+                <Btn onClick={() => AddCartItem(true)} className="w-full sm:w-1/2 py-3 bg-cl-primary text-white hover:bg-cl-primaryDark"> COMPRAR </Btn>
             </div>
 
             <Modal showModal={showModal} setShowModal={setShowModal} className="w-4/5 md:w-1/2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 pt-8 rounded-lg text-center">

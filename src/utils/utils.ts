@@ -1,18 +1,18 @@
 interface percentValueProps {
     price: number;
-    priceSale: number;
+    originalPrice: number;
 }
-export function percentValue({price, priceSale} : percentValueProps){
+export function percentValue({price, originalPrice} : percentValueProps){
     
-    if ( price <= 0 || priceSale <= 0) {
+    if ( price <= 0 || originalPrice <= 0) {
         // 'Os valores devem ser números positivos maiores que zero.'
         return null
     }else
-    if(price < priceSale){
-        //'Preço total é maior que preço de Desconto'
+    if(price > originalPrice){
+        //'Preço Original tem que ser maior que preço de Desconto'
         return null;
     }
-    const percent = Math.round(((price - priceSale) / price) * 100);
+    const percent = Math.round(((originalPrice - price) / originalPrice) * 100);
     return percent;
 }
 
