@@ -46,11 +46,11 @@ export const CartProvider = ({children}:ICartProvider) =>{
             if(existingItem) {
                  // Item already exists in the cart, increase the quantity
                  return prevItems.map((cartItem) => cartItem.id == item.id ? 
-                    { ...cartItem, quantity: cartItem.quantity + 1 }
+                    { ...cartItem, quantity: cartItem.quantity + item.quantity }
                     : cartItem
                  );
             }else{
-                return [...prevItems, {...item, quantity: 1}];
+                return [...prevItems, {...item, quantity: item.quantity}];
             }
         });
     }

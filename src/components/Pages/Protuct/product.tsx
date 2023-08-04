@@ -31,7 +31,7 @@ export function PageProduct({dataProduct} : PageProductProps){
                         <p className=" text-2xl">
                             {dataProduct.specs}
                         </p>
-                       <ActionProduct id={dataProduct.id} price={dataProduct.regularPrice} originalPrice={dataProduct.originalPrice} />
+                       <ActionProduct itemProduct={dataProduct}  />
                     </div>
                 </div>
 

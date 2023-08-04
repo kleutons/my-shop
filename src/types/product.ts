@@ -40,5 +40,5 @@ export type ProductInCart = ProductCart & {
 } 
 
 export type ProductCartAdd = ProductCart & {
-    quantity?: number,
+    quantity: number,
 } 

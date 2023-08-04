@@ -5,31 +5,45 @@ import { Modal } from "../Modal/modal";
 import { useCart } from "@/hooks/useCart";
 import { SvgCart } from "@/assets/icons/cart";
 import { useModalCart } from "@/hooks/useModalCart";
+import { Product } from "@/types/product";
 
 interface ActionProductProps {
-    id: number
-    price: number;
-    originalPrice: number ;
+    itemProduct: Product;
 }
-export function ActionProduct({ id, price, originalPrice} : ActionProductProps){
+export function ActionProduct({ itemProduct } : ActionProductProps){
     
-    const { cartItems } = useCart();
-    const [showModal, setShowModal] = useState(false);
-    const [quantity, setQuantity] = useState(1);
-
+    // context Cart Produt
     const {setIsOpen} = useModalCart();
+    const { cartItems, addToCart } = useCart();
+     
+    const [showModal, setShowModal] = useState(false);
+    const [itemQuantity, setItemQuantity] = useState(1);
+
+   
 
     const increase = () => {
-        if (quantity >= 1 && quantity <= 29) {
-          setQuantity(quantity + 1);
+        if (itemQuantity >= 1 && itemQuantity <= 29) {
+            setItemQuantity(itemQuantity + 1);
         }
     };
     
       const decrease = () => {
-        if (quantity > 1) {
-          setQuantity(quantity - 1);
+        if (itemQuantity > 1) {
+            setItemQuantity(itemQuantity - 1);
         }
     };
+
+    const AddCartItem = () => {
+        const item = {
+            id: itemProduct.id,
+            title: itemProduct.title,
+            mainImg: itemProduct.mainImg,
+            regularPrice: itemProduct.regularPrice,
+            quantity: itemQuantity
+        }
+        addToCart(item);
+        setShowModal(!showModal);
+    }
 
     const handleOpenCart = () => {
         setShowModal(false);
@@ -45,21 +59,21 @@ export function ActionProduct({ id, price, originalPrice} : ActionProductProps){
                     <p className="text-lg md:text-xl font-bold">Quantidade</p>
                     <div className="flex items-center">
                         <Btn onClick={decrease} className="bg-white border border-black px-3 py-1 text-xl md:text-3xl"> - </Btn>
-                        <p className="bg-transparent w-8 md:w-12 text-center text-xl py-1 md:py-2 border-y border-black"> {quantity} </p>
+                        <p className="bg-transparent w-8 md:w-12 text-center text-xl py-1 md:py-2 border-y border-black"> {itemQuantity} </p>
                         <Btn onClick={increase} className="bg-white border border-black px-3 py-1 text-xl md:text-3xl font-normal"> + </Btn>
                     </div>
                 </div>
                 
                 <div className="flex gap-2 justify-end">
-                    {originalPrice !== 0 &&
-                        <p className="text-lg text-gray-600 line-through">R$ {originalPrice},00</p>
+                    {itemProduct.originalPrice !== 0 &&
+                        <p className="text-lg text-gray-600 line-through">R$ {itemProduct.originalPrice},00</p>
                     }
-                    <p className="text-black text-3xl font-bold">R$ {price}<span className=" text-lg">,00</span></p> 
+                    <p className="text-black text-3xl font-bold">R$ {itemProduct.regularPrice}<span className=" text-lg">,00</span></p> 
                 </div>
                 
             </div>
             <div className="flex flex-col sm:flex-row justify-between w-full gap-3">
-                <Btn onClick={() => setShowModal(!showModal) } className="w-full sm:w-1/2 py-3 bg-cl-primaryLigth border-cl-primaryDark text-cl-primary hover:bg-[#fffbf9] border"> Adicione ao Carrinho </Btn>
+                <Btn onClick={AddCartItem} className="w-full sm:w-1/2 py-3 bg-cl-primaryLigth border-cl-primaryDark text-cl-primary hover:bg-[#fffbf9] border"> Adicione ao Carrinho </Btn>
                 <Btn className="w-full sm:w-1/2 py-3 bg-cl-primary text-white hover:bg-cl-primaryDark"> COMPRAR </Btn>
             </div>
 
