@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { NavMenu } from './navMenu';
 import { InputSearch } from './inputSearch';
 import { BtnSearchMobile } from '../Buttons/btnSearchMobile';
-import { CartControl } from './cartControl';
 import { MenuMobile } from './menuMobile';
+import { CartControl } from '../Cart/cartControl';
 
 
 export function Header(){
