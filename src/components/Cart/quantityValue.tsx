@@ -1,25 +1,33 @@
 'use client'
 import { useState } from "react";
 import { Btn } from "../Buttons/btn";
+import { useCart } from "@/hooks/useCart";
 
 interface QuantityValueProps {
+    idItem: number;
     price: number;
     quantity: number;
 }
-export function QuantityValue({price, quantity = 1} : QuantityValueProps){
+export function QuantityValue({idItem, price, quantity = 1} : QuantityValueProps){
+    const { updateQuantity } = useCart();
     const [quant, setQuant] = useState(quantity);
 
     const increase = () => {
         if (quant >= 1 && quant <= 29) {
-          setQuant(quant + 1);
+          const newQaunt = quant + 1;
+          setQuant(newQaunt);
+          updateQuantity(idItem, newQaunt);
         }
     };
     
       const decrease = () => {
         if (quant > 1) {
-          setQuant(quant - 1);
+          const newQaunt = quant - 1;
+          setQuant(newQaunt);
+          updateQuantity(idItem, newQaunt);
         }
     };
+
 
     return(
         <>
