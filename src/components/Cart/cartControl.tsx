@@ -3,23 +3,21 @@ import { SvgCart } from "@/assets/icons/cart";
 import { useState } from "react";
 import { Modal } from "../Modal/modal";
 import { Btn } from "../Buttons/btn";
-import imgProduct  from '@/assets/img/product.jpg'
-import Image from "next/image";
-import { SvgTrash } from "@/assets/icons/trash";
-import { QuantityValue } from "./quantityValue";
 import { CartItem } from "./cartItem";
+import { useModalCart } from "@/hooks/useModalCart";
 
 
 export function CartControl(){
-    const [showModal, setShowModal] = useState(false);
+    
+    const { isOpen, setIsOpen } = useModalCart();
 
     return(
         <>
-            <button  onClick={() => setShowModal(!showModal) } className='w-7 h-5 md:w-8 sm:h-6'>
-                <SvgCart />
+            <button  onClick={() => setIsOpen(!isOpen) } >
+                <SvgCart size={30} />
             </button>
 
-            <Modal showModal={showModal} setShowModal={setShowModal}  className="w-full top-0 bottom-0 md:w-[500px] flex flex-col justify-between p-6 gap-4">
+            <Modal showModal={isOpen} setShowModal={setIsOpen}  className="w-full top-0 bottom-0 md:w-[500px] flex flex-col justify-between p-6 gap-4">
                 <h2 className="text-2xl font-bold text-black">Seu Carrinho de Compras ()</h2>
                 <div className="h-full overflow-y-auto pe-1 flex flex-col gap-3">
 

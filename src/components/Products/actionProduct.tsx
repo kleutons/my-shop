@@ -1,6 +1,10 @@
 'use client'
 import { Btn } from "@/components/Buttons/btn";
 import { useState } from "react";
+import { Modal } from "../Modal/modal";
+import { useCart } from "@/hooks/useCart";
+import { SvgCart } from "@/assets/icons/cart";
+import { useModalCart } from "@/hooks/useModalCart";
 
 interface ActionProductProps {
     id: number
@@ -8,8 +12,12 @@ interface ActionProductProps {
     originalPrice: number ;
 }
 export function ActionProduct({ id, price, originalPrice} : ActionProductProps){
-
+    
+    const { cartItems } = useCart();
+    const [showModal, setShowModal] = useState(false);
     const [quantity, setQuantity] = useState(1);
+
+    const {setIsOpen} = useModalCart();
 
     const increase = () => {
         if (quantity >= 1 && quantity <= 29) {
@@ -22,6 +30,13 @@ export function ActionProduct({ id, price, originalPrice} : ActionProductProps){
           setQuantity(quantity - 1);
         }
     };
+
+    const handleOpenCart = () => {
+        setShowModal(false);
+        setTimeout( () => {
+            setIsOpen(true);
+        },300)
+    }
 
     return(
         <div>
@@ -44,9 +59,23 @@ export function ActionProduct({ id, price, originalPrice} : ActionProductProps){
                 
             </div>
             <div className="flex flex-col sm:flex-row justify-between w-full gap-3">
-                <Btn className="w-full sm:w-1/2 py-3 bg-cl-primaryLigth border-cl-primaryDark text-cl-primary hover:bg-[#fffbf9] border"> Adicione ao Carrinho </Btn>
-                <Btn className="w-full sm:w-1/2 py-3 bg-cl-primaryDark  text-white hover:bg-cl-primary"> COMPRAR </Btn>
+                <Btn onClick={() => setShowModal(!showModal) } className="w-full sm:w-1/2 py-3 bg-cl-primaryLigth border-cl-primaryDark text-cl-primary hover:bg-[#fffbf9] border"> Adicione ao Carrinho </Btn>
+                <Btn className="w-full sm:w-1/2 py-3 bg-cl-primary text-white hover:bg-cl-primaryDark"> COMPRAR </Btn>
             </div>
+
+            <Modal showModal={showModal} setShowModal={setShowModal} className="w-4/5 md:w-1/2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5 pt-8 rounded-lg text-center">
+                ✅ Um novo item foi adicionado ao seu carrinho de compras.
+                <p> Você tem <strong>{cartItems.length}</strong> itens no seu carrinho de compras.</p>
+
+                
+                <Btn onClick={handleOpenCart} className="mt-8 px-4 bg-white border-cl-primaryDark text-cl-primary hover:bg-cl-primaryLigth border">
+                    <div className="flex gap-2 items-center">
+                    <SvgCart size={25} />
+                    Ver Carrinho
+                    </div>
+                </Btn>
+                
+            </Modal>
         </div>
     )
 }
