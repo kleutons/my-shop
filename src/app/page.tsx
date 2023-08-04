@@ -25,10 +25,10 @@ export default async function Home() {
     <main className="flex flex-col gap-24">
       <FeaturedHome />
       <ListProducts dataProducts={filteredList} title="Produtos em Destaque" />
-      <BannerHome src={Banner01} title="Vida Harmoniosa e Criativa" contentText="Os produtos MyShop são todos feitos em tamanhos padrão para que você possa misturá-los e combiná-los livremente." url="#" />
+      <BannerHome src={Banner01} title="Vida Harmoniosa e Criativa" contentText="Os produtos MyShop são todos feitos em tamanhos padrão para que você possa misturá-los e combiná-los livremente." url="/categories" />
 
       <TrendingNow dataProducts={filteredTrend} />
-      <BannerHome reverse src={Banner02} title="Confortável e Elegante" contentText="Os produtos MyShop são todos feitos em tamanhos padrão para que você possa misturá-los e combiná-los livremente." url="#" />
+      <BannerHome reverse src={Banner02} title="Confortável e Elegante" contentText="Os produtos MyShop são todos feitos em tamanhos padrão para que você possa misturá-los e combiná-los livremente." url="/product/4" />
 
     </main>
   )
