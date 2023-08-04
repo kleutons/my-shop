@@ -24,7 +24,7 @@ export function PageProduct({dataProduct} : PageProductProps){
                 <div className="flex flex-col md:flex-row gap-4 sm:gap-2 w-full mb-20">
                     <h1 className="block md:hidden text-3xl font-bold text-center">{dataProduct.title}</h1>  
                     <div className="flex flex-col justify-end w-ful md:w-1/2 h-auto md:h-[600px]">
-                        <ProductsImgs mainImgUrl={dataProduct.mainImg} otherImgsUrl={dataProduct.otherImgs} />
+                        <ProductsImgs mainImgUrl={dataProduct.mainImg} otherImgsUrl={dataProduct.otherImgs} discontItem={discont} />
                     </div>
                     <div className="w-ful md:w-1/2 flex flex-col justify-between gap-8  h-auto md:h-[600px] bg-[#eeeeee] px-6 md:px-4 lg:px-8 pt-6 pb-10"> 
                         <h1 className="hidden md:block text-3xl font-bold text-center">{dataProduct.title}</h1>  

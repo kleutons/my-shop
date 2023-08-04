@@ -5,8 +5,9 @@ import { useState } from "react";
 interface ProductsImgsProps {
  mainImgUrl: string;
  otherImgsUrl?: string[];
+ discontItem?: number | null;
 }
-export function ProductsImgs({mainImgUrl, otherImgsUrl} : ProductsImgsProps){
+export function ProductsImgs({mainImgUrl, otherImgsUrl, discontItem} : ProductsImgsProps){
     
     const [selectImg, setSelectImag] = useState<string>(mainImgUrl);
 
@@ -18,7 +19,10 @@ export function ProductsImgs({mainImgUrl, otherImgsUrl} : ProductsImgsProps){
 
     return(
         <>
-            <div className="flex h-[70%] w-full justify-center">
+            <div className="flex relative h-[70%] w-full justify-center">
+                { discontItem &&
+                    <div className="absolute top-0 left-0 px-2 text-lg bg-cl-primary text-white">Oferta: {discontItem}% OFF</div> 
+                }
                 <Image src={selectImg} alt="img Product" height={450} width={450} className="h-full object-cover w-full md:w-[75%]" />
             </div>
             <div className="flex items-center gap-2 justify-center py-3 w-full">
