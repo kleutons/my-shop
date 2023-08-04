@@ -14,7 +14,7 @@ export function MenuMobile(){
                 <SvgMenu />
             </button>
 
-            <Modal showModal={showModal} setShowModal={setShowModal}  className="w-full top-0 bottom-0 md:w-[500px] flex items-center justify-center">
+            <Modal showModal={showModal} setShowModal={setShowModal}  className="w-full top-0 bottom-0 md:w-[500px] flex items-center justify-center select-none">
                 <ul className="flex flex-col gap-6 items-center text-3xl" onClick={() => setShowModal(!showModal)}>
                     <NavMenu />
                 </ul>
