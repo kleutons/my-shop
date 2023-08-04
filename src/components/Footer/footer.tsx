@@ -12,25 +12,25 @@ const menuFooter = [
     },
     {
         name: "Sobre",
-        link: "/about"
+        link: "/page/about"
     },
     {
         name: "Política de Privacidade",
-        link: "/policy"
+        link: "/page/policy"
     },
     {
         name: "FAQ Dúvidas Frequentes",
-        link: "/faq"
+        link: "/page/faq"
     },
     {
         name: "Contato",
-        link: "/contact"
+        link: "/page/contact"
     }
 ]
 
 export function Footer(){
     return(
-        <footer className="w-full mt-24">
+        <footer className="w-full mt-24 select-none">
             <div className="bg-[#191919] min-h-[260px] py-12 sm:py-0 text-white flex items-center">
                 <div className="mx-auto container flex flex-col sm:flex-row justify-around gap-6">
                     <div className="flex flex-col text-center justify-center gap-6">
