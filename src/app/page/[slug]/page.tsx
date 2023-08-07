@@ -7,10 +7,6 @@ import { PagePolicy } from "@/components/Pages/Page/policy";
 import { Metadata } from "next";
 
 
-export const metadata: Metadata = {
-    title: 'Paginas | MyShop - Ecommerce Minimalista',
-}
-
 const arrayPages: { [key: string]: { title: string; content: string | React.ReactNode } } = {
     'about': {
         title: 'Sobre',
