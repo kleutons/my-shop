@@ -13,7 +13,7 @@ export function BtnSearchMobile(){
                 <SvgSearch />
             </button>
             {isOpen && 
-                <div className='fixed flex items-center justify-center gap-2 top-0 right-0 left-0 bg-white p-2 h-14'>
+                <div className='fixed z-10 flex items-center justify-center gap-2 top-0 right-0 left-0 bg-white p-2 h-14'>
                     <button className='h-8 w-8 text-black' onClick={() => setIsOpen(!isOpen)}>
                         <SvgBack />
                     </button>
