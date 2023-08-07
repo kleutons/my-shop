@@ -14,7 +14,7 @@ export function PageCategories({slug, dataProducts} : PageCategoriesProps){
 
     let filteredProduct = dataProducts;
     if(slug){
-        filteredProduct = dataProducts.filter(x => x.category === slug);
+        filteredProduct = dataProducts.filter(x =>  x.category.toString() === slug);
     }
 
     return(
