@@ -21,15 +21,15 @@ export function OneProduct({ dataItem } : OneProductListProps){
                 <Image alt={`Product ${dataItem.title}`} src={dataItem.mainImg} height={250} width={250} className="w-full" />
                 <div>
                     <p className="text-lg whitespace-nowrap text-ellipsis overflow-hidden">{dataItem.title}</p>
-                    <div className="flex gap-3">
+                    <div className="flex gap-2">
                         
                         { discont ? (
                             <>
-                            <p className="text-lg text-gray-600 line-through">R$ {dataItem.originalPrice},00</p>
-                            <p className="text-2xl font-bold">R$ {dataItem.regularPrice}<span className="text-sm">,00</span></p>
+                            <p className="text-lg text-gray-600 relative"><div className="absolute h-[1px] bg-gray-500 top-[45%] w-full"></div><span className="text-base">R$</span>{dataItem.originalPrice}<span className="text-base">,00</span></p>
+                            <p className="text-2xl font-bold"><span className="text-base">R$</span>{dataItem.regularPrice}<span className="text-sm">,00</span></p>
                             </>
                         ):(
-                            <p className="text-2xl font-bold">R$ {dataItem.regularPrice}<span className="text-sm">,00</span></p>
+                            <p className="text-2xl font-bold"><span className="text-base">R$</span>{dataItem.regularPrice}<span className="text-sm">,00</span></p>
                         )}
                     </div>
                 </div>

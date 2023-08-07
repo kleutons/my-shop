@@ -39,7 +39,7 @@ export function QuantityValue({idItem, price, quantity = 1} : QuantityValueProps
                 </div>
             </div>
             <div>
-                R$ {price * quant}<span className="text-sm">,00</span>
+                <span className="text-base">R$</span>{price * quant}<span className="text-sm">,00</span>
             </div>
         </>
     )

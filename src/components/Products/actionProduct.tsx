@@ -71,9 +71,9 @@ export function ActionProduct({ itemProduct } : ActionProductProps){
                 
                 <div className="flex gap-2 justify-end">
                     {itemProduct.originalPrice !== 0 &&
-                        <p className="text-lg text-gray-600 line-through">R$ {itemProduct.originalPrice},00</p>
+                        <p className="text-lg text-gray-600 relative"><div className="absolute h-[1px] bg-gray-500 top-[37%] w-full"></div><span className="text-base">R$</span>{itemProduct.originalPrice}<span className="text-base">,00</span></p>
                     }
-                    <p className="text-black text-3xl font-bold">R$ {itemProduct.regularPrice}<span className=" text-lg">,00</span></p> 
+                    <p className="text-black text-3xl font-bold"><span className="text-base">R$</span>{itemProduct.regularPrice}<span className=" text-lg"><span className="text-base">,00</span></span></p> 
                 </div>
                 
             </div>
