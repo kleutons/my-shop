@@ -3,10 +3,17 @@ import { PageCategories } from "@/components/Pages/Categories/categories";
 import { Product } from "@/types/product";
 import { fetchApi } from "@/utils/fetchApi";
 import { getCategoryName } from "@/utils/utils";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+    title: 'Categorias | MyShop - Ecommerce Minimalista',
+ }
+
 
 const getProductsData = async  (): Promise<Product[]> => {
     return fetchApi(
-      60 * 2
+      60 * 60 * 4
     )
 }
 
@@ -46,3 +53,15 @@ export default async function Categories({ params: { categories } }:IProps){
         </>
     )
 }
+
+export async function generateMetadata({ params: { categories }}: IProps): Promise<Metadata> {
+
+    const slug = categories[1];
+    const nameCategory = getCategoryName(slug)
+
+    return {
+      title: `${nameCategory} | MyShop - Ecommerce Minimalista` ,
+      description: 'Categoria de Produtos: ${nameCategory} - MyShop - Ecommerce Minimalista',
+    }
+  }
+

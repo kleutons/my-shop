@@ -4,10 +4,11 @@ import { TrendingNow } from "@/components/Products/tredingNow";
 import { Product } from "@/types/product";
 import { fetchApi } from "@/utils/fetchApi";
 import { ShuffleArray, getCategoryName } from "@/utils/utils";
+import { Metadata } from "next";
 
 const getProductsData = async  (): Promise<Product[]> => {
     return fetchApi(
-      60 * 2
+      60 * 60 * 4
     )
   }
 
@@ -42,4 +43,29 @@ export default async function Product({ params: { id } }:IProps){
         <TrendingNow dataProducts={filteredTrend} />
         </>
     )
+}
+
+export async function generateMetadata({ params: { id }}: IProps): Promise<Metadata> {
+
+
+  const parmId = parseInt(id);
+  const productsData = await getProductsData();
+  const filteredProduct:Product | undefined = productsData.find(x => x.id === parmId);
+
+  const returnArray = !filteredProduct ? 
+    { title: 'Produto não encontrado | MyShop - Ecommerce Minimalista' } : {
+      title: `${filteredProduct.title} | MyShop - Ecommerce Minimalista`,
+      description: filteredProduct.specs,
+      openGraph: {
+        images: [
+          {
+            url: filteredProduct.mainImg,
+            width: 1200,
+            height: 630,
+          },
+        ],
+      },
+    };
+
+  return returnArray;
 }

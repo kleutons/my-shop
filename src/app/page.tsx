@@ -7,10 +7,15 @@ import Banner02 from '@/assets/img/banner02.jpg'
 import { TrendingNow } from "@/components/Products/tredingNow";
 import { Product } from "@/types/product";
 import { fetchApi } from "@/utils/fetchApi";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Home | MyShop - Ecommerce Minimalista',
+}
 
 const getProductsData = async  (): Promise<Product[]> => {
   return fetchApi(
-    60 * 2
+    60 * 60 * 8
   )
 }
 

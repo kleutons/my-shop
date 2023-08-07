@@ -8,6 +8,11 @@ import Image from "next/image"
 import notFound from '@/assets/img/notFound.png'
 import { TrendingNow } from "@/components/Products/tredingNow"
 import { ShuffleArray } from "@/utils/utils"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: 'Buscar | MyShop - Ecommerce Minimalista',
+  }
 
 const getProductsData = async  (): Promise<Product[]> => {
     return fetchApi(
