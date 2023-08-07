@@ -4,11 +4,10 @@ import { ListProducts } from "@/components/Products/listProducts"
 import { Product } from "@/types/product"
 import { fetchApi } from "@/utils/fetchApi"
 import { searchProducts } from "@/utils/searchProducts"
-import Image from "next/image"
-import notFound from '@/assets/img/notFound.png'
 import { TrendingNow } from "@/components/Products/tredingNow"
 import { ShuffleArray } from "@/utils/utils"
 import { Metadata } from "next"
+import { SearchNotFound } from "@/components/Pages/Page/searchNotFound"
 
 export const metadata: Metadata = {
     title: 'Buscar | MyShop - Ecommerce Minimalista',
@@ -20,17 +19,6 @@ const getProductsData = async  (): Promise<Product[]> => {
     )
 }
 
-
-export function NotFound() {
-    return (
-        <div className="flex flex-col justify-center items-center w-full text-center" >
-            <Image src={notFound} alt="Nenhum resultado foi encontrado" width={150} height={150} />
-            <div className="text-lg">
-                Nenhum resultado foi encontrado
-            </div>
-        </div>
-    );
-};
 
 interface SearchProps {
     searchParams: { keyword?: string | undefined }
@@ -62,11 +50,11 @@ export default async function Search({ searchParams: { keyword } }: SearchProps)
                 {filteredProducts.length ? (
                     <ListProducts dataProducts={filteredProducts} />
                 ):(
-                    <NotFound />
+                    <SearchNotFound />
                 )}
                 </>
             ):(
-                <NotFound />
+                <SearchNotFound />
             )}
             <div className="mt-36 pt-16  border-t border-gray-300">
                 <TrendingNow dataProducts={filteredTrend} />
