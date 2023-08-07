@@ -42,7 +42,7 @@ export function Footer(){
                     </div>
                     <div className="flex flex-col gap-4 text-center">
                         <h2 className="text-3xl font-bold">Siga-nos!</h2>
-                        <div className="flex gap-3 justify-center">
+                        <div className="flex gap-3 justify-center items-center">
                             <Link href='https://www.linkedin.com/in/kleuton-novais/' target="_black">
                                 <button className="text-white/70 hover:text-white">
                                     <SvgLinkedin size={36} />
