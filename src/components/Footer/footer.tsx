@@ -1,4 +1,4 @@
-import { SvgFace } from "@/assets/icons/face";
+
 import { SvgGithub } from "@/assets/icons/github";
 import { SvgLink } from "@/assets/icons/link";
 import { SvgLinkedin } from "@/assets/icons/linkedin";
@@ -43,18 +43,21 @@ export function Footer(){
                     <div className="flex flex-col gap-4 text-center">
                         <h2 className="text-3xl font-bold">Siga-nos!</h2>
                         <div className="flex gap-3 justify-center">
-                            <button className="text-white/70 hover:text-clprimary">
-                                <SvgFace size={40} />
-                            </button>
-                            <button className="text-white/70 hover:text-white">
-                                <SvgLinkedin size={36} />
-                            </button>
-                            <button className="text-white/70 hover:text-white">
-                                <SvgGithub size={40} />
-                            </button>
-                            <button className="text-white/70 hover:text-white">
-                                <SvgLink size={40} />
-                            </button>
+                            <Link href='https://www.linkedin.com/in/kleuton-novais/' target="_black">
+                                <button className="text-white/70 hover:text-white">
+                                    <SvgLinkedin size={36} />
+                                </button>
+                            </Link>
+                            <Link href='https://github.com/kleutons' target="_black" >
+                                <button className="text-white/70 hover:text-white">
+                                    <SvgGithub size={40} />
+                                </button>
+                            </Link>
+                            <Link href='https://kleuton.dev' target="_black" >
+                                <button className="text-white/70 hover:text-white">
+                                    <SvgLink size={40} />
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
