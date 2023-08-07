@@ -5,12 +5,6 @@ import { fetchApi } from "@/utils/fetchApi";
 import { getCategoryName } from "@/utils/utils";
 import { Metadata } from "next";
 
-
-export const metadata: Metadata = {
-    title: 'Categorias | MyShop - Ecommerce Minimalista',
- }
-
-
 const getProductsData = async  (): Promise<Product[]> => {
     return fetchApi(
       60 * 60 * 4
@@ -60,8 +54,8 @@ export async function generateMetadata({ params: { categories }}: IProps): Promi
     const nameCategory = getCategoryName(slug)
 
     return {
-      title: `${nameCategory} | MyShop - Ecommerce Minimalista` ,
-      description: 'Categoria de Produtos: ${nameCategory} - MyShop - Ecommerce Minimalista',
+      title: `${nameCategory} | MyShop - Ecommerce Minimalista`,
+      description: `Categoria de Produtos: ${nameCategory} - MyShop - Ecommerce Minimalista`,
     }
   }
 
