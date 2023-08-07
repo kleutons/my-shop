@@ -34,7 +34,7 @@ export function searchProducts(arrayProducts:Product[], keyWord: string):Product
     const categorySearch = searchEquivalentCategory(keyWord);
 
     if(categorySearch){
-        return arrayProducts.filter(x => x.category === categorySearch);;
+        return arrayProducts.filter(x => x.category.toString() === categorySearch);;
     }
 
     return arrayProducts.filter((item: Product) => {
