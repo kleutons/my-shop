@@ -79,7 +79,7 @@ export function Footer(){
                                 })}
                             </ul>
                         </nav>
-                        <div className="mt-8"> © 2023 - Made with 💙 by Kleuton Novais</div>
+                        <div className="mt-8"> © 2023 - Made with 💙 by  <Link href='https://kleuton.dev' target="_blank"  className=" hover:text-sky-600">Kleuton Novais</Link></div>
                     
                 </div>
             </div>
