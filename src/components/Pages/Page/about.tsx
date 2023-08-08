@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface PageAboutProps {
 
 }
@@ -14,6 +16,9 @@ export function PageAbout(props : PageAboutProps){
         Com um design limpo e elegante, nosso objetivo é colocar os produtos em destaque, permitindo que você se concentre no que realmente importa: encontrar os itens que deseja. Vamos dar uma olhada em algumas das principais características que tornam o MyShop uma escolha excepcional para suas compras online
         </p>
         <ol className="list-decimal">
+            <li>
+                <b>Conexão Gateway de Pagamento Strapi:</b> MyShop conta com uma integração poderosa com a API Strapi para facilitar os processos de pagamento. A API Strapi é uma solução robusta que oferece um ambiente seguro para gerenciar transações financeiras, garantindo uma experiência suave e confiável para nossos clientes.
+            </li>
             <li>
                 <b>Rotas e Navegação:</b> O MyShop utiliza o poder do Next.js para criar um sistema de roteamento eficiente. Isso permite uma transição perfeita entre as diferentes páginas, garantindo uma experiência de navegação fluida e rápida.
             </li>
@@ -46,7 +51,7 @@ export function PageAbout(props : PageAboutProps){
         Então, o que você está esperando? Explore o MyShop agora mesmo.
         Há, não se esqueça vá em meu portfolio pessoa e descubra outros projetos criado pelo desenvolvedor.
         </p>
-        <p> Acesse: https://kleuton.vercel.app/ </p>
+        <p> Acesse: <Link href='http://kleuton.dev' target="_blank" > https://kleuton.dev/ </Link> </p>
         </div>
     )
 }
