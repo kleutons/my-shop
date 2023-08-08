@@ -84,7 +84,7 @@ Página de Categorias: Se você deseja explorar todas as categorias disponíveis
 
 * [LinkedIn](https://www.linkedin.com/in/kleuton-novais/)
 
-* [PORTIFOLIO](https://kleuton.dev)
+* [Portfólio](https://kleuton.dev)
 
 <br />
 <hr />
