@@ -8,6 +8,7 @@ import { useCart } from "@/hooks/useCart";
 import { ProductInCart } from "@/types/product";
 import Image from "next/image";
 import cartNone from '@/assets/img/cartNone.png';
+import { BtnCheckout } from "./btnCheckout";
 
 
 export function CartControl(){
@@ -20,6 +21,11 @@ export function CartControl(){
     const calTotal = (valueList: ProductInCart[]) => {
         return valueList.reduce( (sum, item) => sum += (item.regularPrice * item.quantity), 0);
     }
+
+    const itemsCheckout = cartItems.map((item) => ({
+        price: item.idStripe,
+        quantity: item.quantity, 
+    }));
 
     return(
         <>
@@ -46,7 +52,7 @@ export function CartControl(){
                         <div className="h-full overflow-y-auto pe-1 flex flex-col gap-3">
 
                             {cartItems?.map((item) => (
-                                <CartItem key={`CartItem-${item.id}`} id={item.id} title={item.title} mainImg={item.mainImg} regularPrice={item.regularPrice} quantity={item.quantity} />
+                                <CartItem key={`CartItem-${item.id}`} dataItem={item}  />
                             ))}
                                 
 
@@ -63,8 +69,7 @@ export function CartControl(){
                                     <span>Total:</span> <p>R$ {calTotal(cartItems)}<span className="text-sm">,00</span></p>
                                 </div>
                             </div>
-
-                            <Btn className="px-3 py-3 bg-transparent border-[3px] border-cl-primary text-cl-primary hover:bg-cl-primary hover:text-white whitespace-nowrap"> Finalizar Compra </Btn>
+                            <BtnCheckout dataItems={itemsCheckout} />
                         </div>
                     </>
                 )}

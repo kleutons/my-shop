@@ -12,6 +12,7 @@ interface ActionProductProps {
 }
 export function ActionProduct({ itemProduct } : ActionProductProps){
     
+
     // context Cart Produt
     const {setIsOpen} = useModalCart();
     const { cartItems, addToCart } = useCart();
@@ -43,6 +44,7 @@ export function ActionProduct({ itemProduct } : ActionProductProps){
     function AddCartItem(byNow?:boolean){
         const item = {
             id: itemProduct.id,
+            idStripe: itemProduct.idStripe,
             title: itemProduct.title,
             mainImg: itemProduct.mainImg,
             regularPrice: itemProduct.regularPrice,

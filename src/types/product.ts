@@ -31,6 +31,7 @@ export type Product = {
 
 type ProductCart ={
     id: number;
+    idStripe: string;
     title: string;
     mainImg: string;
     regularPrice: number;
@@ -43,3 +44,8 @@ export type ProductInCart = ProductCart & {
 export type ProductCartAdd = ProductCart & {
     quantity: number,
 } 
+
+export type ProductCheckout = {
+    price: string,
+    quantity: number
+}

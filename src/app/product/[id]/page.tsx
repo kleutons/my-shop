@@ -22,8 +22,6 @@ export default async function Product({ params: { id } }:IProps){
     const filteredProduct = productsData.find(x => x.id === parmId);
     const filteredTrend = ShuffleArray(productsData).slice(8, 20);
 
-
-
     return(
         <>
         {filteredProduct && 
