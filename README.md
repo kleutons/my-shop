@@ -2,7 +2,7 @@
 
 <br>
 
->📃 Bem-vindo(a) ao MyShop, o projeto de E-commerce desenvolvido pelo Analista de Sistemas - Kleuton Novais. Com foco exclusivo nos produtos oferece uma experiência única e minimalista para a melhor usabilidade ao usuário, o MyShop foi desenvolvido com a mais atual tecnologia, feito como Next.js na versão 13.4.10, TypeScript, Tailwind e uma API fake para o backend dos produtos.
+📃 Bem-vindo(a) ao MyShop, o projeto de E-commerce desenvolvido pelo Analista de Sistemas - Kleuton Novais. Com foco exclusivo nos produtos oferece uma experiência única e minimalista para a melhor usabilidade ao usuário, o MyShop foi desenvolvido com a mais atual tecnologia, feito como Next.js na versão 13.4.10, TypeScript, Tailwind e uma API fake para o backend dos produtos.
 
 Com um design limpo e elegante, nosso objetivo é colocar os produtos em destaque, permitindo que você se concentre no que realmente importa: encontrar os itens que deseja. Vamos dar uma olhada em algumas das principais características que tornam o MyShop uma escolha excepcional para suas compras online...
 
