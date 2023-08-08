@@ -18,6 +18,7 @@ export type DetailsProduct = {
 
 export type Product = {
     id: number;
+    idStripe: string;
     category: ProductCategory;
     title: string;
     regularPrice: number;
